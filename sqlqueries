@@ -1,0 +1,66 @@
+CREATE TABLE STORE (
+StoreID	Char(35)	NOT NULL,
+StoreName	Char(35)	NOT NULL,
+City	Char(35)	NOT NULL,
+Country Char(35)	NOT NULL,
+Phone Char(35)	NOT NULL,
+Fax Char(35)	NOT NULL,
+Email Char(35)	NOT NULL,
+Contact Char(35)	NOT NULL,
+);
+
+CREATE TABLE ITEM (
+ItemID Char(35) NOT NULL,
+ItemDescription Char(35) NOT NULL,
+PurchaseDate Char(35) NOT NULL,
+Category Char(35)	NOT NULL,
+PriceUSD Char(35) NOT NULL,
+InsuredValue Char(35) NOT NULL,
+StoreID Char(35) NOT NULL,
+ShipmentID Char(35) NOT NULL,
+);
+CREATE TABLE SHIPMENT(
+ShipmentID Char(35) NOT NULL,
+InvoiceNumber Char(35) NOT NULL,
+Origin Char(35) NOT NULL,
+Destination Char(35) NOT NULL,
+DepartureDate Char(35) NOT NULL,
+ArrivalDate Char(35) NOT NULL,
+ShipperID Char(35) NOT NULL,
+);
+CREATE TABLE SHIPPER(
+SHipperID Char(35) NOT NULL,
+SHipperName Char(35) NOT NULL,
+ShipperPhone Char(35) NOT NULL,
+ShipperFax Char(35) NOT NULL,
+ShipperEmail Char(35) NOT NULL,
+ShipperContract Char(35) NOT NULL,
+);
+
+SELECT *
+FROM CUSTOMER
+
+SELECT Phone, LastName
+FROM Customer
+WHERE FirstName ='Nikki';
+
+SELECT Phone, FirstName 
+FROM CUSTOMER 
+WHERE FirstName LIKE 'B%'; 
+
+SELECT Phone, FirstName 
+FROM CUSTOMER 
+WHERE LastName LIKE '%cat%';
+
+SELECT LastName, FirstName 
+FROM CUSTOMER 
+GROUP BY LastName, FirstName; 
+
+SELECT MAX (TotalAmt) 
+AS MaxTotalAmount, MIN (TotalAmt) 
+AS MinTotalAmount FROM INVOICE;
+
+SELECT Phone, DateIn, DateOut 
+FROM CUSTOMER, INVOICE
+
+WHERE TotalAmount >100 AND CUSTOMER.CustomerID = INVOICE.CustomerNumber;
